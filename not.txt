@@ -1,0 +1,50 @@
+EF FirstCode
+1-(tool=>Nuget Package Manager=>Manage Packet ...) [mickrosoft.e..f..c..]  ve [mickrosoft.e..f..c...tools] ve[mickrosoft.e..f..c...sqlserver] indiriyorum.
+2-proje'de yeni class olusturuyorum (ApplictaionDbContext)Adila . bu class'da kalitim yapiyorum DbContext'dan
+3-yeni class yaptim(Employee) proplar eklidim 
+4-(applicationDbContext)'e gidiyorum ve yeni prop yapiyorum[public DbSet<Employee> Employees { get; set; }].
+5-(package Manager Console)'ta Add-Migraions sonra Update-dateBase yaziyorum.
+
+							{silmek}
+-bir migration silmek icin (package Manager console)'de [Update-datebase -migration:0] yaziyoruz.    {{bu sadece table siliyor ama migration kaliyor}}
+-class migration silmek icin onceki islem yaptiktan sonra [remove-migration] yaziyorum.(son migration siliyor)
+-bir table bir guncelleme yaptim bazi veri ekledim... bu table eski duruma getirmek istiyorsam [update-database eski isim] yaziyorum.
+
+
+
+
+
+
+-asagida var olan seyler bunlar adi DataAnnotations. ya bunlar kullaniyoruz ya da FluentApi ama bazi seyler sadece FluentApi'da kullanabiler
+-FluentApi (ApplicationDbContext)'da yapabilir metot olarak
+
+
+-bir prop'e iki veya daha fazla ozelligi ekliyorsak  (   [birinci ozellik,ikinci ozellik]    )
+
+					{tabloya classin isminde farkli bir isim vermek}
+-calssin usutunde (   [table("yeni isim")]  ) yaziyorum.
+
+
+							{bir prop ismi degirtirmek icin }
+-prop usutunde (    [Column("yeni isim")]   )
+
+
+							{bir datatype degistirmek icin}
+-prop usutunde([Column(TypeName = "yeni datatype")])
+
+							{length tanimlamak icin }
+-prop usutunde([MaxLength(200)])
+
+								{sql'e aciklama  eklemek icin }
+-prop usutunde([Comment("............")])
+
+							{bir porp'e set default value ve sql kullanmasiyla }
+-(ApplicationDbContext)'de (FluentApi) metotinde bir kod yaziyoruz.
+
+
+							{sql statement kullanmasiyla value baska prop'tan almak }
+-(ApplicationDbContext)'de (FluentApi) metotinde bir kod yaziyoruz.
+
+
+						{primary key bir idntity eklemek icin}
+-genelikle bir primary key datetype:int bu nedenle indentity oluyor ama byte secirsek indentity olmuyor bunun icin prop usutunde[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
